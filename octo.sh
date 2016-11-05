@@ -7,10 +7,10 @@ read input
 if [ -d "$input" ]; then
   cd $input
 else
-  echo "Package does not exist! Would you like to fetch the package from an URL? [y/n]"
+  printf "Package does not exist! Would you like to fetch the package from an URL? [y/n]"
   read yn
   if [ $yn = "y" ]; then
-    echo "Input URL.. (must be tar.gz)"
+    printf "Input URL.. (must be tar.gz)"
     read pkglocation
     sudo mkdir $input && sudo wget -O octo.tar.gz $pkglocation && sudo tar xf temp.tar.gz -C $input && sudo rm temp.tar.gz && cd $input
   elif [ $yn = "n" ]; then
