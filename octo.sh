@@ -1,18 +1,16 @@
-#!/bin/bash
+#!/bin/sh
 
 cd /usr/ports
 ls
-echo "this is everything in your /usr/ports directory, what would you like to install?"
+printf "This is /usr/ports, what would you like to install?"
 read input
 cd $input
-echo "does this package require the 'make install' command?"
-echo "[y/n]"
+printf "Does this package require 'make install?'\n[y/n]"
 read yn
 if [ $yn = "y" ]; then
-        sudo make
-        sudo make install
+    sudo make && make install
 elif [  $yn = "n" ]; then
-        sudo make
+    sudo make
 else
-    	echo "ERROR! TYPE 'Y' OR 'N'!"
+    printf "Please type 'y' or 'n':"
 fi
