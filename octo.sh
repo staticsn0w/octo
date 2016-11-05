@@ -7,7 +7,7 @@ read input
 if [ -d "$input" ]; then
   cd $input
 else
-  printf "Package does not exist! Would you like to fetch the package from an URL? [y/n]"
+  printf "Package does not exist! Would you like to fetch the package from a URL? [y/n]"
   read yn
   if [ $yn = "y" ]; then
     printf "Input URL.. (must be tar.gz)"
