@@ -4,7 +4,7 @@ email: staticsn0w@hashbang.sh
 description: > # this means to ignore newlines until "baseurl:"
   Octo is a new take on an old package management system.
   it uses the ports concept and only shell scripts to achieve a pseudo-package management system.
-baseurl: "" # the subpath of your site, e.g. /blog/
+baseurl: "/octo" # the subpath of your site, e.g. /blog/
 url: "http://staticsn0w.github.io/octo" # the base hostname & protocol for your site
 twitter_username: COLECOVISIONS_
 github_username:  staticsn0w
