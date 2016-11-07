@@ -1,10 +1,16 @@
 #!/bin/sh
 
-cd /usr/ports
-ls
+# no $OCTODIR failsafe
+if [ -d "$OCTODIR" ]; then
+  cd $OCTODIR
+  ls
+else
+  printf "the octo packages directory does not exist, run installer.sh to configure it.\n"
+  exit
+fi
 
 ## getting package to install ##
-printf "Listed /usr/ports directory, what to install?"
+printf "Listed octo packages directory, what to install?"
 read input
 if [ -d "$input" ]; then
   cd $input
@@ -19,6 +25,7 @@ else
     sudo mkdir $input && sudo wget -O octo.tar.gz $pkglocation && sudo tar xf temp.tar.gz -C $input && sudo rm temp.tar.gz && cd $input
   elif [ $yn = "n" ]; then
     printf "'n' argument given, exiting..\n"
+    exit
   else
     printf "Please type 'y' or 'n':\n"
   fi
@@ -52,5 +59,5 @@ elif [  $yn = "n" ]; then
     sudo make
   fi
 else
-  printf "Please type 'y' or 'n':\n"
+  printf "Please type 'y' or 'n': "
 fi
