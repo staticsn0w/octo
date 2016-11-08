@@ -1,11 +1,11 @@
-#!/bin/sh
+import os
 
 # no $OCTODIR failsafe
 if [ -d "$OCTODIR" ]; then
   cd $OCTODIR
   ls
 else
-  printf "the octo packages directory does not exist, run installer.sh to configure it.\n"
+os.system("printf "the octo packages directory does not exist, run installer.sh to configure it.\n"")
   exit
 fi
 
