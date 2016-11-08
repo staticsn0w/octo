@@ -1,13 +1,13 @@
-#!/bin/sh
+import os
 
 # no $OCTODIR failsafe
-if [ -d "$OCTODIR" ]; then
-  cd $OCTODIR
-  ls
-else
-  printf "the octo packages directory does not exist, run installer.sh to configure it.\n"
-  exit
-fi
+os.system("if [ -d "$OCTODIR" ]; then
+             cd $OCTODIR
+             ls
+           else
+             printf "the octo packages directory does not exist, run installer.sh to configure it."
+             exit
+           fi
 
 ## getting package to install ##
 printf "Listed octo packages directory, what to install?"
@@ -61,3 +61,4 @@ elif [  $yn = "n" ]; then
 else
   printf "Please type 'y' or 'n': "
 fi
+")
