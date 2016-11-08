@@ -1,7 +1,7 @@
 import os
 
 # no $OCTODIR failsafe
-if [ -d "$OCTODIR" ]; then
+##if [ -d "$OCTODIR" ]; then
   cd $OCTODIR
   ls
 else
