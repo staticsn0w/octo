@@ -15,14 +15,22 @@ read input
 if [ -d "$input" ]; then
   cd $input
 
-## fetching package from URL if needed ##
+## parsing and package installation ##
 else
-  printf "Package does not exist! Would you like to fetch the package from a URL? [y/n]\n"
+  printf "Package does not exist! Would you like to fetch the package from the main repository? [y/n]\n"
   read yn
   if [ $yn = "y" ]; then
-    printf "Input URL.. (must be tar.gz)\n"
-    read pkglocation
-    sudo mkdir $input && sudo wget -O octo.tar.gz $pkglocation && sudo tar xf temp.tar.gz -C $input && sudo rm temp.tar.gz && cd $input
+    if [ -f "/etc/octo/pkgs.conf"]; then
+      packagename=$(grep -i $input /etc/octo/pkgs.conf)
+        if [ $packagename = '']; then
+          printf "package does not exist, exiting..."
+          exit
+        fi
+      packageurl=$(grep -i $input"url" /etc/octo/pkgs.conf)
+        if [ $packageurl = '']; then
+          printf "package url is broken, exiting..."
+          exit
+        fi
   elif [ $yn = "n" ]; then
     printf "'n' argument given, exiting..\n"
     exit
