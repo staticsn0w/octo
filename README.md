@@ -11,5 +11,4 @@ by doing this:
 `sudo mkdir <directory> && sudo echo "export OCTODIR=<directory path>" >> ~/.bash_profile && sudo echo "export OCTODIR=<directory path>" >> /root/.bash_profile` (directory obviously meaning the directory you want to keep you package source at)
 
 # what's coming next?
-well, right now I'm working on actually setting up a web based package repository with someone else.
-I'm not gonna give away specifics, but it's gonna be really cool. I'm also going to work on porting octo.sh to Python, and adding more features (like command line flags, deleting packages, updating packages, etc). I'm also going to move to a new domain for the project homepage (preferably octo.pw), and I'll be moving away from Jekyll in favour of actual html and CSS.
+I'm going to be working on porting octo.sh to Python, and adding more features (like command line flags, deleting packages, updating packages, etc), and I'll be moving away from Jekyll in favour of actual HTML and CSS.
