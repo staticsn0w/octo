@@ -19,10 +19,14 @@ if [[ -z $input ]]; then
       exit
   fi
 
-  ## octo binary installation ##
+  ## octo installation ##
   sudo chmod +x octo
   sudo cp octo /bin
-  printf "Done! Run 'octo' to confirm everything is working correctly.\n"
+  ## setting up /etc/octo/pkgs.list ##
+  sudo mkdir /etc/octo
+  sudo touch /etc/octo/pkgs.list
+  sudo echo 'Package="octo", Version="1.0.0", URL="https://github.com/staticsn0w/octo/releases/download/v1.0.0/octo-v1-0-0.tar.gz";\nPackage="HelloOcto", Version="1.0", URL="testurl.url";\n' >> /etc/octo/pkgs.list
+  printf "Done! Run 'octo -u' to confirm update your sources and confirm everything is working.\n"
 else
   printf "Aborting...\n"
   exit
